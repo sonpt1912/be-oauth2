@@ -60,7 +60,6 @@ public class JwtProvider {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            // Assuming your payload structure is represented by the MyPayloadClass class
             UserInfo payloadObject = objectMapper.readValue(payload, UserInfo.class);
             return payloadObject;
         } catch (Exception e) {

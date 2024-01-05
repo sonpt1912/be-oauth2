@@ -10,7 +10,6 @@ import java.security.spec.InvalidKeySpecException;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000")
 public class GoogleLoginController {
 
     @Autowired
