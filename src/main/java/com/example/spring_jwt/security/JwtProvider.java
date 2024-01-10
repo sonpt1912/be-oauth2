@@ -86,7 +86,7 @@ public class JwtProvider {
                 .setClaims(claims)
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME * 60000))
+                .setExpiration(new Date(System.currentTimeMillis() + 5 * 60000000))
                 .signWith(SignatureAlgorithm.HS512, SECRET_KEY).compact();
     }
 

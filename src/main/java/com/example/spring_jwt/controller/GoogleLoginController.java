@@ -1,5 +1,6 @@
 package com.example.spring_jwt.controller;
 
+import com.example.spring_jwt.dto.JwtResponse;
 import com.example.spring_jwt.dto.TokenRequest;
 import com.example.spring_jwt.model.google.UserInfo;
 import com.example.spring_jwt.security.JwtProvider;
@@ -25,7 +26,10 @@ public class GoogleLoginController {
     public Object loginGoogle(@RequestBody TokenRequest crenditial) throws NoSuchAlgorithmException, InvalidKeySpecException {
         UserInfo user = (UserInfo) jwtProvider.getAllClaimsFromToken(crenditial.getCrenditial());
         UserDetails userDetails = userDetailsService.loadUserByUsername(user.getEmail());
-        return jwtProvider.generateToken(userDetails);
+        JwtResponse response = JwtResponse.builder()
+                .jwtToken(jwtProvider.generateToken(userDetails))
+                .username(userDetails.getUsername()).build();
+        return response;
     }
 
 }
