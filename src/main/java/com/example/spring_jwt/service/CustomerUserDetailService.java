@@ -14,11 +14,8 @@ public class CustomerUserDetailService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-        // load data from db
+    public UserDetails loadUserByUsername(String username) {
         User user = userRepository.findUserByUsername(username);
-
         return user;
     }
 }

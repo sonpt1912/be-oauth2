@@ -42,7 +42,7 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .authorizeRequests()
-                .requestMatchers("/auth/**", "/api/**").permitAll()
+                .requestMatchers("/auth/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(point))
